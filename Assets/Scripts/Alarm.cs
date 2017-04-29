@@ -7,16 +7,6 @@ public class Alarm : PlacementManager
 {
     public GameObject AlarmSound;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public override void OnInputClicked(InputClickedEventData eventData)
     {
         base.OnInputClicked(eventData);

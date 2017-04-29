@@ -59,6 +59,9 @@ public class InitializeScene : MonoBehaviour
         else
         {
             SpatialMappingControl.Instance.DrawVisualMeshes = false;
+
+            GetComponent<MainController>().Ready();
+
             Destroy(this);
         }
     }

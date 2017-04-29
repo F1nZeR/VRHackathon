@@ -9,6 +9,7 @@ public class MainController : MonoBehaviour
 {
     public GameObject FireSound;
     public GameObject ExitObject;
+    public GameObject Smoke;
 
     public Slider OxygenSlider;
     public Slider BurntSlider;
@@ -20,7 +21,6 @@ public class MainController : MonoBehaviour
     void Start()
     {
         Data.Controller = this;
-        StartCoroutine(Init());
     }
 
     float GetCurrentPlayerHeight()
@@ -28,14 +28,21 @@ public class MainController : MonoBehaviour
         return Camera.main.transform.position.y;
     }
 
-    IEnumerator Init()
+    public void StartVoice()
     {
-        yield return new WaitForSeconds(5);
-        InitHeight();
-        //FireSound.SetActive(true);
-        //Data.IsSmokeActivated = true;
+        if (IsReadyToStart)
+        {
+            IsReadyToStart = false;
 
-        //TimerTimeLeft = 90f;
+            Smoke.SetActive(true);
+
+            FireSound.SetActive(true);
+            Data.IsSmokeActivated = true;
+
+            TimerTimeLeft = 90f;
+
+            GetComponent<StickGenerator>().enabled = true;
+        }
     }
 
     void InitHeight()
@@ -106,5 +113,13 @@ public class MainController : MonoBehaviour
     private void StartExitProcedure()
     {
         //TODO:EXIT!!
+    }
+
+    public bool IsReadyToStart = false;
+
+    public void Ready()
+    {
+        InitHeight();
+        IsReadyToStart = true;
     }
 }

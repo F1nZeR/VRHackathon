@@ -8,6 +8,8 @@ public class StickGenerator : MonoBehaviour {
     private float FrontOffset = 4;
 	public Transform Prefab;
 
+    public Transform Camera;
+
     private List<Transform> _objects;
 
 	// Use this for initialization
@@ -31,7 +33,7 @@ public class StickGenerator : MonoBehaviour {
 			var obj = Object.Instantiate (Prefab);
 
             obj.rotation = Random.rotation;
-            obj.position = transform.position + transform.forward * (FrontOffset + i) + Vector3.up * UpOffset;
+            obj.position = Camera.transform.position + Camera.transform.forward * (FrontOffset + i) + Vector3.up * UpOffset;
             _objects.Add(obj);
 		}
 	}

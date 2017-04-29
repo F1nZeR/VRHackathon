@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayerHeight.unity
     guid: c6eb80cea20a2a34a93d56ec89f82456
   - enabled: 0
-    path: 
+    path: Assets/Scenes/HandTracking.unity
     guid: 6a9d6b8c9b646e74899bd4a14d04ee5a
   - enabled: 1
     path: Assets/Scenes/TestSmoke.unity
     guid: 61841d16689bd9c449a5ee134db843e7
+  - enabled: 0
+    path: Assets/Scenes/MainScene.unity
+    guid: 15d000fed7fa6754aa51602de2b4f8ff

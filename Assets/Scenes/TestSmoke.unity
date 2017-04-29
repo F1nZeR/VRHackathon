@@ -296,6 +296,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &237361996 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1892450584218352, guid: f50c7d4b5079fd341a21cd60e02d70d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 623480955}
 --- !u!1001 &265528414
 Prefab:
   m_ObjectHideFlags: 0
@@ -1079,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4676192692472942, guid: 34937e7a74087434d89393254084147c, type: 2}
+  Camera: {fileID: 0}
 --- !u!114 &828553825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,23 +1690,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.49991274
+      value: -0.7069834
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.50008726
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.49991274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.50008726
+      value: 0.7072302
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_RootOrder
@@ -1712,7 +1718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
       propertyPath: m_IsActive
@@ -1833,6 +1839,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc802f2706c415449839a2f1fd104bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1395641981
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.6828935
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.18304469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.1829808
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.68313193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599457760675484, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2f91dd43722ff674881609c4272ed809, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1395641982 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1785910992926858, guid: 2f91dd43722ff674881609c4272ed809,
+    type: 2}
+  m_PrefabInternal: {fileID: 1395641981}
 --- !u!1 &1486721289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,6 +2010,7 @@ GameObject:
   - component: {fileID: 1594689527}
   - component: {fileID: 1594689529}
   - component: {fileID: 1594689530}
+  - component: {fileID: 1594689531}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -2000,10 +2054,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireSound: {fileID: 819532729}
-  ExitObject: {fileID: 0}
+  ExitObject: {fileID: 1318363119}
+  Smoke: {fileID: 237361996}
   OxygenSlider: {fileID: 193416762}
   BurntSlider: {fileID: 277247719}
   TimerText: {fileID: 520794429}
+  IsReadyToStart: 0
 --- !u!114 &1594689529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2018,6 +2074,7 @@ MonoBehaviour:
   ObjectsToInit:
   - {fileID: 1318363119}
   - {fileID: 1146209395}
+  - {fileID: 1395641982}
 --- !u!114 &1594689530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2030,6 +2087,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4676192692472942, guid: 34937e7a74087434d89393254084147c, type: 2}
+  Camera: {fileID: 836513774}
+--- !u!114 &1594689531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594689525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2795b3e072e1745a4f8c670d64284f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RecognizerStart: 0
+  KeywordsAndResponses:
+  - Keyword: Go Start
+    KeyCode: 0
+    Response:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1594689528}
+          m_MethodName: StartVoice
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
 --- !u!1 &1633883862
 GameObject:
   m_ObjectHideFlags: 0

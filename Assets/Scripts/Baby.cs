@@ -7,16 +7,6 @@ public class Baby : PlacementManager
 {
     public GameObject BabySound;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public override void OnInputClicked(InputClickedEventData eventData)
     {
         base.OnInputClicked(eventData);
@@ -36,5 +26,6 @@ public class Baby : PlacementManager
     {
         gameObject.SetActive(false);
         BabySound.SetActive(false);
+        gameObject.AddComponent<Rigidbody>().mass = 2;
     }
 }
