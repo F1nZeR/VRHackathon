@@ -27,7 +27,7 @@ public class MainController : MonoBehaviour
 		InitHeight();
 		AlarmSound.SetActive(true);
 		FireSound.SetActive(true);
-		Data.IsSmokeActivated = true;
+        Data.IsSmokeActivated = true;
 	}
 
 	void InitHeight()
