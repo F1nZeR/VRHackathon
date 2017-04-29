@@ -35,7 +35,7 @@ public class MainController : MonoBehaviour
 								new Vector3(0, -1, 0),
 								out hitInfo,
 								3f,
-								SpatialMappingManager.Instance.LayerMask);
+								SpatialMappingControl.PhysicsRaycastMask);
 		var height = Vector3.Distance(Camera.main.transform.position, hitInfo.point);
 		if (Mathf.Abs(height) < 0.2f)
 		{
