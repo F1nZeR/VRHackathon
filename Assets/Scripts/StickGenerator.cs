@@ -13,7 +13,8 @@ public class StickGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_objects = new List<Transform> ();
-	}
+        InvokeRepeating("Generate", 10, 8);
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -25,7 +26,7 @@ public class StickGenerator : MonoBehaviour {
 
 	public void Generate()
 	{
-        ClearObjects();
+        //ClearObjects();
         for (int i = 0; i < Count; i++) {
 			var obj = Object.Instantiate (Prefab);
 

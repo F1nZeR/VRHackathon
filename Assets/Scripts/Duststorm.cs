@@ -7,11 +7,11 @@ public class Duststorm : MonoBehaviour
 {
 	public Transform MainCamera;
 
-	public float Height = 0;
+	//public float Height = 0;
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		transform.position = new Vector3 (MainCamera.position.x, Data.FloorHeight + Height, MainCamera.position.z);
+		transform.position = new Vector3 (MainCamera.position.x, Data.GetSmokeHeight(), MainCamera.position.z);
 	}
 }
