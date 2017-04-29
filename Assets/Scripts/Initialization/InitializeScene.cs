@@ -25,6 +25,8 @@ public class InitializeScene : MonoBehaviour
             _controllerToStart = controller;
             _framesToSkip = 9;
         }
+
+        SpatialMappingControl.Instance.SetDefaultUpdateTime();
     }
 
     private void LateUpdate()
@@ -59,6 +61,7 @@ public class InitializeScene : MonoBehaviour
         else
         {
             SpatialMappingControl.Instance.DrawVisualMeshes = false;
+            SpatialMappingControl.Instance.SetDefaultUpdateTime();
 
             GetComponent<MainController>().Ready();
 

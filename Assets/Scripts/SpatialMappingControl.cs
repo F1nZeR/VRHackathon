@@ -18,6 +18,16 @@ public class SpatialMappingControl : MonoBehaviour
         Instance = this;
     }
 
+    public void ShortenUpdateTime()
+    {
+        spatialMappingCollider.secondsBetweenUpdates = spatialMappingRenderer.secondsBetweenUpdates = 0.5f;
+    }
+
+    public void SetDefaultUpdateTime()
+    {
+        spatialMappingCollider.secondsBetweenUpdates = spatialMappingRenderer.secondsBetweenUpdates = 2.5f;
+    }
+
     private SpatialMappingRenderer spatialMappingRenderer;
 
     private SpatialMappingCollider spatialMappingCollider;
