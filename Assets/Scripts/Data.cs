@@ -6,5 +6,5 @@ public static class Data
 {
     public static float FloorHeight { get; set; }
 
-
+    public static MainController Controller { get; set; }
 }

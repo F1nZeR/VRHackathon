@@ -5,12 +5,14 @@ using UnityEngine;
 public class MainController : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+	    Data.Controller = this;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 }
