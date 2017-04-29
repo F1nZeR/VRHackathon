@@ -314,9 +314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb56f71d8833a34d90cd6e4b73f590d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Count: 2
-  UpOffset: 1
-  FrontOffset: 10
   Prefab: {fileID: 4676192692472942, guid: 34937e7a74087434d89393254084147c, type: 2}
 --- !u!1001 &940313425
 Prefab:
