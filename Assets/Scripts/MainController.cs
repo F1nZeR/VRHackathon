@@ -17,16 +17,17 @@ public class MainController : MonoBehaviour
 
 	float GetCurrentPlayerHeight()
 	{
-		var floorHeight = Data.FloorHeight;
 		var curCameraHeight = Camera.main.transform.position.y;
-		return curCameraHeight - floorHeight;
+		var floorHeight = Data.FloorHeight;
+		return Mathf.Abs(curCameraHeight - floorHeight);
 	}
 
 	IEnumerator Init()
 	{
 		yield return new WaitForSeconds(5);
 		InitHeight();
-		AlarmSound.SetActive(true);
+		// AlarmSound.SetActive(true);
+		Data.IsSmokeActivated = true;
 	}
 
 	void InitHeight()
@@ -38,6 +39,10 @@ public class MainController : MonoBehaviour
 								3f,
 								SpatialMappingManager.Instance.LayerMask);
 		var height = Vector3.Distance(Camera.main.transform.position, hitInfo.point);
+		if (Mathf.Abs(height) < 0.2f)
+		{
+			height = 1.8f;
+		}
 		Data.FloorHeight = -height;
 	}
 	
@@ -46,7 +51,7 @@ public class MainController : MonoBehaviour
     {
 		if (Data.IsSmokeActivated)
 		{
-			if (GetCurrentPlayerHeight() >= Data.GetSmokeHeight())
+			if (Data.FloorHeight + GetCurrentPlayerHeight() >= Data.GetSmokeHeight())
 			{
 				Data.DamagePlayer(DamageType.Smoke);
 			}
