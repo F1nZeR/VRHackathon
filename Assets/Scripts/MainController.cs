@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
-    public GameObject AlarmSound;
     public GameObject FireSound;
     public GameObject ExitObject;
 
@@ -32,7 +31,6 @@ public class MainController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         InitHeight();
-        AlarmSound.SetActive(true);
         FireSound.SetActive(true);
         Data.IsSmokeActivated = true;
 
