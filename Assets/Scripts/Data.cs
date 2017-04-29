@@ -2,54 +2,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum HealthLevel
+public enum DamageType
 {
-    SlightlyDamaged,
-    MediumDamaged,
-    HighlyDamaged
+    Smoke,
+    Fire
 }
 
 public static class Data
 {
     static Data()
     {
-        PlayerHealth = 100f;
+        OxygenAmount = 100;
+        BurnsAmount = 0;
     }
 
     public static MainController Controller { get; set; }
 
-    public static float PlayerHealth { get; set; }
     public static float FloorHeight { get; set; }
-    public static float IsSmokeHurts { get; set; }    
-    
-    public static void DamageUser(float damageValue)
+    public static bool IsSmokeActivated { get; set; }    
+
+    public static float OxygenAmount { get; set; }
+    public static float BurnsAmount { get; set; }
+
+    public static float GetSmokeHeight()
     {
-        PlayerHealth -= damageValue;
-        if (PlayerHealth < 0)
+        return FloorHeight + 1.3f;
+    }
+    
+    public static void DamagePlayer(DamageType damageType)
+    {
+        switch (damageType)
+        {
+            case DamageType.Fire:
+                BurnsAmount += 0.1f;
+                break;
+
+            case DamageType.Smoke:
+                OxygenAmount -= 0.1f;
+                break;
+
+            default:
+                break;
+        }
+
+        if (BurnsAmount >= 100 || OxygenAmount <= 0)
         {
             Controller.KillPlayer();
         }
-        else
-        {
-            if (PlayerHealth > 80 && PlayerHealth < 100)
-            {
-                Controller.NotifyAboutHealth(HealthLevel.SlightlyDamaged);
-            }
-            else if (PlayerHealth > 40 && PlayerHealth <= 80)
-            {
-                Controller.NotifyAboutHealth(HealthLevel.MediumDamaged);
-            }
-            else
-            {
-                Controller.NotifyAboutHealth(HealthLevel.HighlyDamaged);
-            }
-        }
     }
 
-    //TODO: USE IT!
-    public static float Co2Amount { get; set; }
+    public static void HealPlayer(DamageType damageType)
+    {
+        if (BurnsAmount <= 0 || OxygenAmount >= 100)
+        {
+            return;
+        }
 
-    //TODO: USE IT!
-    public static float BurnsAmount { get; set; }
+        switch (damageType)
+        {
+            case DamageType.Fire:
+                BurnsAmount -= 0.1f;
+                break;
 
+            case DamageType.Smoke:
+                OxygenAmount += 0.1f;
+                break;
+
+            default:
+                break;
+        }
+
+        if (BurnsAmount <= 0 || OxygenAmount >= 100)
+        {
+            BurnsAmount = 0;
+            OxygenAmount = 100;
+        }
+    }
 }
