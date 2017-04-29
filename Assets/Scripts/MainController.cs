@@ -15,4 +15,19 @@ public class MainController : MonoBehaviour {
     {
 		
 	}
+
+    public GameObject ExitObject;
+
+    public void CollidedWith(GameObject collidedWith)
+    {
+        if (collidedWith == ExitObject)
+        {
+            StartExitProcedure();
+        }
+    }
+
+    private void StartExitProcedure()
+    {
+        //TODO:EXIT!!
+    }
 }
