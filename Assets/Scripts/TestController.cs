@@ -10,8 +10,7 @@ public class TestController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-
-	    Object.GetComponent<PlacementManager>().StartPlacement();
+        Object.GetComponent<Alarm>().StartPlacement();
 	}
 	
 	// Update is called once per frame
