@@ -91,6 +91,10 @@ public class MainController : MonoBehaviour
         {
             StartExitProcedure();
         }
+		else if (collidedWith.tag == "Fire")
+		{
+			Data.DamagePlayer(DamageType.Fire);
+		}
     }
 
     private void StartExitProcedure()
