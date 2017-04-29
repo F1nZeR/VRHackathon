@@ -10,6 +10,7 @@ public class TestController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+
 	    Object.GetComponent<PlacementManager>().StartPlacement();
 	}
 	

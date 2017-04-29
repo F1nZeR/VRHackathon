@@ -30,6 +30,8 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
     // Use this for initialization
     void Start ()
     {
+        Debug.Log("START");
+
         if (WorldAnchorManager.Instance == null)
         {
             Debug.LogError("This script expects that you have a WorldAnchorManager component in your scene.");
@@ -72,6 +74,8 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
 
     private void Go()
     {
+        Debug.Log("GO");
+
         // If the user is in placing mode, display the spatial mapping mesh.
         if (isPlacing)
         {
@@ -92,6 +96,8 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
 
     public void StartPlacement()
     {
+        Debug.Log("START PLACEMENT");
+
         isPlacing = true;
         Go();
     }
