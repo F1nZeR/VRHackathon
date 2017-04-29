@@ -47,8 +47,8 @@ namespace HoloToolkit.Unity
 
         private void UpdateTextDisplay()
         {
-            var oxygenDisplayString = string.Format("Кислород: {0}%", Data.OxygenAmount);
-            var burnString = string.Format("Ожоги: {0}%", Data.BurnsAmount);
+            var oxygenDisplayString = string.Format("Кислород: {0:P2}", Data.OxygenAmount);
+            var burnString = string.Format("Ожоги: {0:P2}", Data.BurnsAmount);
             var displayString = oxygenDisplayString + Environment.NewLine + burnString;
 
             if (textMesh != null)

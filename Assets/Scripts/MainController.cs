@@ -17,9 +17,7 @@ public class MainController : MonoBehaviour
 
 	float GetCurrentPlayerHeight()
 	{
-		var curCameraHeight = Camera.main.transform.position.y;
-		var floorHeight = Data.FloorHeight;
-		return Mathf.Abs(curCameraHeight - floorHeight);
+		return Camera.main.transform.position.y;
 	}
 
 	IEnumerator Init()
@@ -46,12 +44,11 @@ public class MainController : MonoBehaviour
 		Data.FloorHeight = -height;
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
+	void FixedUpdate()
+	{
 		if (Data.IsSmokeActivated)
 		{
-			if (Data.FloorHeight + GetCurrentPlayerHeight() >= Data.GetSmokeHeight())
+			if (GetCurrentPlayerHeight() >= Data.GetSmokeHeight())
 			{
 				Data.DamagePlayer(DamageType.Smoke);
 			}

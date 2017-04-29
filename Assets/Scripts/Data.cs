@@ -12,7 +12,7 @@ public static class Data
 {
     static Data()
     {
-        OxygenAmount = 100;
+        OxygenAmount = 1;
         BurnsAmount = 0;
     }
 
@@ -34,11 +34,11 @@ public static class Data
         switch (damageType)
         {
             case DamageType.Fire:
-                BurnsAmount += 0.1f;
+                BurnsAmount += 0.001f;
                 break;
 
             case DamageType.Smoke:
-                OxygenAmount -= 0.1f;
+                OxygenAmount -= 0.002f;
                 break;
 
             default:
@@ -53,28 +53,27 @@ public static class Data
 
     public static void HealPlayer(DamageType damageType)
     {
-        if (BurnsAmount <= 0 || OxygenAmount >= 100)
-        {
-            return;
-        }
-
         switch (damageType)
         {
             case DamageType.Fire:
-                BurnsAmount -= 0.1f;
+                BurnsAmount -= 0.001f;
                 break;
 
             case DamageType.Smoke:
-                OxygenAmount += 0.1f;
+                OxygenAmount += 0.001f;
                 break;
 
             default:
                 break;
         }
 
-        if (BurnsAmount <= 0 || OxygenAmount >= 100)
+        if (BurnsAmount <= 0)
         {
             BurnsAmount = 0;
+        }
+
+        if (OxygenAmount >= 100)
+        {
             OxygenAmount = 100;
         }
     }
