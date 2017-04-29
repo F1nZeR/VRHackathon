@@ -10,7 +10,7 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
     public string AnchorFriendlyName = "AnchorFriendlyNameItIsGlobal!!!";
     public GameObject ObjectToPlace = null;
 
-    private bool isPlacing = false;
+    protected bool IsPlacing = false;
 
     private GameObject Object
     {
@@ -46,7 +46,7 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
 	// Update is called once per frame
 	void Update ()
     {
-        if (isPlacing)
+        if (IsPlacing)
         {
             // Do a raycast into the world that will only hit the Spatial Mapping mesh.
             var headPosition = Camera.main.transform.position;
@@ -77,7 +77,7 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
         Debug.Log("GO");
 
         // If the user is in placing mode, display the spatial mapping mesh.
-        if (isPlacing)
+        if (IsPlacing)
         {
             //spatialMapping.DrawVisualMeshes = true;
 
@@ -98,21 +98,21 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
     {
         Debug.Log("START PLACEMENT");
 
-        isPlacing = true;
+        IsPlacing = true;
         Go();
     }
 
-    public void OnInputClicked(InputClickedEventData eventData)
+    public virtual void OnInputClicked(InputClickedEventData eventData)
     {
         Debug.Log("CLICK!");
 
-        if (isPlacing == false)
+        if (IsPlacing == false)
         {
             eventData.Reset();
             return;
         }
 
-        isPlacing = !isPlacing;
+        IsPlacing = !IsPlacing;
         Go();
 
         eventData.Use();
