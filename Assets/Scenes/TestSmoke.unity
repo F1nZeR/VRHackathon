@@ -1630,6 +1630,17 @@ RectTransform:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 53cb7ae19e760bc449801f56b98059f0, type: 3}
   m_PrefabInternal: {fileID: 1209745585}
+--- !u!114 &1146209396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146209395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc802f2706c415449839a2f1fd104bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1146209399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,6 +2017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectsToInit:
   - {fileID: 1318363119}
+  - {fileID: 1146209395}
 --- !u!114 &1594689530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2128,7 +2140,7 @@ Prefab:
     - target: {fileID: 102765860297987302, guid: f49366f177cccd94e808ac753e1eec83,
         type: 2}
       propertyPath: m_Text
-      value: 
+      value: hjhghfjghj
       objectReference: {fileID: 0}
     - target: {fileID: 4771548977246844, guid: f49366f177cccd94e808ac753e1eec83, type: 2}
       propertyPath: m_LocalPosition.x
