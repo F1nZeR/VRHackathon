@@ -314,9 +314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb56f71d8833a34d90cd6e4b73f590d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Count: 2
-  UpOffset: 2
-  FrontOffset: 12
   Prefab: {fileID: 4676192692472942, guid: 34937e7a74087434d89393254084147c, type: 2}
 --- !u!1001 &940313425
 Prefab:
@@ -484,6 +481,7 @@ GameObject:
   - component: {fileID: 1594689526}
   - component: {fileID: 1594689528}
   - component: {fileID: 1594689527}
+  - component: {fileID: 1594689529}
   m_Layer: 0
   m_Name: MainController
   m_TagString: Untagged
@@ -528,6 +526,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AlarmSound: {fileID: 1020638510}
   ExitObject: {fileID: 0}
+--- !u!114 &1594689529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594689525}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d0f0d15c7e3fd499e0a3af85630466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 0}
 --- !u!1001 &1771777831
 Prefab:
   m_ObjectHideFlags: 0
