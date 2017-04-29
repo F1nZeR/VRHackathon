@@ -13,7 +13,7 @@ public static class Data
     static Data()
     {
         OxygenAmount = 1;
-        BurnsAmount = 0;
+        HealthAmount = 1;
     }
 
     public static MainController Controller { get; set; }
@@ -22,7 +22,7 @@ public static class Data
     public static bool IsSmokeActivated { get; set; }    
 
     public static float OxygenAmount { get; set; }
-    public static float BurnsAmount { get; set; }
+    public static float HealthAmount { get; set; }
 
     public static float GetSmokeHeight()
     {
@@ -34,7 +34,7 @@ public static class Data
         switch (damageType)
         {
             case DamageType.Fire:
-                BurnsAmount += 0.001f;
+                HealthAmount -= 0.001f;
                 break;
 
             case DamageType.Smoke:
@@ -45,9 +45,19 @@ public static class Data
                 break;
         }
 
-        if (BurnsAmount >= 100 || OxygenAmount <= 0)
+        if (HealthAmount <= 0 || OxygenAmount <= 0)
         {
             Controller.KillPlayer();
+        }
+        
+        if (HealthAmount <= 0)
+        {
+            HealthAmount = 0;
+        }
+
+        if (OxygenAmount <= 0)
+        {
+            OxygenAmount = 0;
         }
     }
 
@@ -56,7 +66,7 @@ public static class Data
         switch (damageType)
         {
             case DamageType.Fire:
-                BurnsAmount -= 0.001f;
+                HealthAmount += 0.001f;
                 break;
 
             case DamageType.Smoke:
@@ -67,14 +77,14 @@ public static class Data
                 break;
         }
 
-        if (BurnsAmount <= 0)
+        if (HealthAmount >= 1)
         {
-            BurnsAmount = 0;
+            HealthAmount = 1;
         }
 
-        if (OxygenAmount >= 100)
+        if (OxygenAmount >= 1)
         {
-            OxygenAmount = 100;
+            OxygenAmount = 1;
         }
     }
 }

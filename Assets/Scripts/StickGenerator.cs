@@ -5,7 +5,7 @@ using UnityEngine;
 public class StickGenerator : MonoBehaviour {
 	private int Count = 2;
     private float UpOffset = 2;
-    private float FrontOffset = 6;
+    private float FrontOffset = 4;
 	public Transform Prefab;
 
     private List<Transform> _objects;
