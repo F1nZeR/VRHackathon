@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StickGenerator : MonoBehaviour {
-	public int Count = 2;
-    public float UpOffset = 2;
-    public float FrontOffset = 6;
+	private int Count = 2;
+    private float UpOffset = 2;
+    private float FrontOffset = 6;
 	public Transform Prefab;
 
     private List<Transform> _objects;

@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 33290300993628060}
   - component: {fileID: 23535927364284166}
   - component: {fileID: 54911340089543554}
-  - component: {fileID: 65378662805277394}
+  - component: {fileID: 65503749377333446}
   m_Layer: 0
   m_Name: BurntWood
   m_TagString: Untagged
@@ -232,7 +232,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65378662805277394
+--- !u!65 &65503749377333446
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -242,8 +242,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05104146, y: 0.008195329, z: 0.008729735}
-  m_Center: {x: -0.003043822, y: -0.00028370373, z: 0.0040103495}
+  m_Size: {x: 0.020416584, y: 0.0032781332, z: 0.0034918964}
+  m_Center: {x: -0.0012175291, y: -0.00011348157, z: 0.0016041407}
 --- !u!114 &114388849357484082
 MonoBehaviour:
   m_ObjectHideFlags: 1
