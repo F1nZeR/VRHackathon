@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using HoloToolkit.Unity.SpatialMapping;
 using UnityEngine;
 
-public class MainController : MonoBehaviour {
+public class MainController : MonoBehaviour 
+{
+    public GameObject AlarmSound;
+    public GameObject ExitObject;
 
 	// Use this for initialization
 	void Start ()
     {
 		Data.Controller = this;
-		StartCoroutine(InitHeight());
+		StartCoroutine(Init());
 	}
 
 	float GetCurrentPlayerHeight()
@@ -19,9 +22,15 @@ public class MainController : MonoBehaviour {
 		return curCameraHeight - floorHeight;
 	}
 
-	IEnumerator InitHeight()
+	IEnumerator Init()
 	{
 		yield return new WaitForSeconds(5);
+		InitHeight();
+		AlarmSound.SetActive(true);
+	}
+
+	void InitHeight()
+	{
 		RaycastHit hitInfo;
 		bool hit = Physics.Raycast(Camera.main.transform.position,
 								new Vector3(0, -1, 0),
@@ -52,8 +61,6 @@ public class MainController : MonoBehaviour {
 	{
 		// todo: kill user
 	}
-
-    public GameObject ExitObject;
 
     public void CollidedWith(GameObject collidedWith)
     {
