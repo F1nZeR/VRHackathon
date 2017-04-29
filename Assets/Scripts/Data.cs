@@ -45,10 +45,13 @@ public static class Data
                 break;
         }
 
-        if (BurnsAmount >= 100 || OxygenAmount <= 0)
+        if (BurnsAmount >= 1 || OxygenAmount <= 0)
         {
             Controller.KillPlayer();
         }
+
+        BurnsAmount = Mathf.Max(BurnsAmount, 1);
+        OxygenAmount = Mathf.Min(OxygenAmount, 0);
     }
 
     public static void HealPlayer(DamageType damageType)
@@ -67,14 +70,7 @@ public static class Data
                 break;
         }
 
-        if (BurnsAmount <= 0)
-        {
-            BurnsAmount = 0;
-        }
-
-        if (OxygenAmount >= 100)
-        {
-            OxygenAmount = 100;
-        }
+        BurnsAmount = Mathf.Min(BurnsAmount, 0);
+        OxygenAmount = Mathf.Max(OxygenAmount, 1);
     }
 }

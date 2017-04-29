@@ -6,6 +6,7 @@ using UnityEngine;
 public class MainController : MonoBehaviour 
 {
     public GameObject AlarmSound;
+    public GameObject FireSound;
     public GameObject ExitObject;
 
 	// Use this for initialization
@@ -25,6 +26,7 @@ public class MainController : MonoBehaviour
 		yield return new WaitForSeconds(5);
 		InitHeight();
 		AlarmSound.SetActive(true);
+		FireSound.SetActive(true);
 		Data.IsSmokeActivated = true;
 	}
 
@@ -37,7 +39,7 @@ public class MainController : MonoBehaviour
 								3f,
 								SpatialMappingManager.Instance.LayerMask);
 		var height = Vector3.Distance(Camera.main.transform.position, hitInfo.point);
-		if (Mathf.Abs(height) < 0.2f)
+		if (Mathf.Abs(height) < 0.5f)
 		{
 			height = 1.8f;
 		}
