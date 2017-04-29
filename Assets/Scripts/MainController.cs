@@ -69,7 +69,7 @@ public class MainController : MonoBehaviour
             }
 
             OxygenSlider.value = Data.OxygenAmount;
-            BurntSlider.value = Data.BurnsAmount;
+            BurntSlider.value = Data.HealthAmount;
 
             TimerTimeLeft -= Time.deltaTime;
             var secondsLeft = Mathf.Round(TimerTimeLeft);
@@ -78,7 +78,7 @@ public class MainController : MonoBehaviour
                 // todo: exit
                 TimerTimeLeft = 0;
             }
-            TimerText.text = string.Format("Time Left: 00:{0}", secondsLeft > 10 ? secondsLeft.ToString() : "0" + secondsLeft);
+            TimerText.text = string.Format("00:{0}", secondsLeft >= 10 ? secondsLeft.ToString() : "0" + secondsLeft);
         }
     }
 
