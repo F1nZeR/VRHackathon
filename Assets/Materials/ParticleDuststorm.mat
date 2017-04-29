@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ParticleSmokeWhite
-  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: ParticleDuststorm
+  m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,14 +18,14 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b16c22b4e3fa11d4b9e83f6fcfac8cc6, type: 3}
+        m_Texture: {fileID: 2800000, guid: cf73d38d02482ad48b869b5d1535f392, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _InvFade: 0.8275
+    - _InvFade: 0.25
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor: {r: 0.35820895, g: 0.35820895, b: 0.35820895, a: 0.75686276}
+    - _TintColor: {r: 0.8014706, g: 0.74457103, b: 0.6836073, a: 0.07058824}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
