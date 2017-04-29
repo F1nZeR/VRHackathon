@@ -34,7 +34,7 @@ public static class Data
         switch (damageType)
         {
             case DamageType.Fire:
-                HealthAmount -= 0.001f;
+                HealthAmount -= 0.004f;
                 break;
 
             case DamageType.Smoke:

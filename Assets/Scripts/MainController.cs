@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using HoloToolkit.Unity.SpatialMapping;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class MainController : MonoBehaviour
         FireSound.SetActive(true);
         Data.IsSmokeActivated = true;
 
-        TimerTimeLeft = 30f;
+        TimerTimeLeft = 90f;
     }
 
     void InitHeight()
@@ -70,13 +71,18 @@ public class MainController : MonoBehaviour
             BurntSlider.value = Data.HealthAmount;
 
             TimerTimeLeft -= Time.deltaTime;
-            var secondsLeft = Mathf.Round(TimerTimeLeft);
             if (TimerTimeLeft < 0)
             {
                 // todo: exit
                 TimerTimeLeft = 0;
             }
-            TimerText.text = string.Format("00:{0}", secondsLeft >= 10 ? secondsLeft.ToString() : "0" + secondsLeft);
+
+            var timeLeft = TimeSpan.FromSeconds(TimerTimeLeft);
+            var secondsLeft = timeLeft.Seconds;
+            var minutesLeft = timeLeft.Minutes;
+            TimerText.text = string.Format("{0}:{1}",
+                minutesLeft >= 10 ? minutesLeft.ToString() : "0" + minutesLeft,
+                secondsLeft >= 10 ? secondsLeft.ToString() : "0" + secondsLeft);
         }
     }
 
@@ -91,10 +97,10 @@ public class MainController : MonoBehaviour
         {
             StartExitProcedure();
         }
-		else if (collidedWith.tag == "Fire")
-		{
-			Data.DamagePlayer(DamageType.Fire);
-		}
+        else if (collidedWith.tag == "Fire")
+        {
+            Data.DamagePlayer(DamageType.Fire);
+        }
     }
 
     private void StartExitProcedure()
