@@ -45,19 +45,21 @@ public static class Data
                 break;
         }
 
-        if (HealthAmount <= 0 || OxygenAmount <= 0)
-        {
-            Controller.KillPlayer();
-        }
-        
         if (HealthAmount <= 0)
         {
-            HealthAmount = 0;
+            Controller.KillPlayer();
         }
 
         if (OxygenAmount <= 0)
         {
             OxygenAmount = 0;
+            HealthAmount -= 0.004f;
+        }
+        
+        if (HealthAmount <= 0)
+        {
+            HealthAmount = 0;
+            Controller.KillPlayer();
         }
     }
 
