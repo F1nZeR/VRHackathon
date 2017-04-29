@@ -26,7 +26,7 @@ public class MainController : MonoBehaviour
 	{
 		yield return new WaitForSeconds(5);
 		InitHeight();
-		// AlarmSound.SetActive(true);
+		AlarmSound.SetActive(true);
 		Data.IsSmokeActivated = true;
 	}
 
