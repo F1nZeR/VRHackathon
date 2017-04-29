@@ -483,6 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2eb6db731bb3945850380d8393d82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AlarmSound: {fileID: 1020638510}
   ExitObject: {fileID: 0}
 --- !u!1001 &1771777831
 Prefab:
