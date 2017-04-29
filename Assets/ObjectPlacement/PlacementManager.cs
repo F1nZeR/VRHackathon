@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
@@ -9,8 +10,25 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
 {
     public string AnchorFriendlyName = "AnchorFriendlyNameItIsGlobal!!!";
     public GameObject ObjectToPlace = null;
+    private bool _isPlacing = false;
 
-    protected bool IsPlacing = false;
+    protected bool IsPlacing
+    {
+        get { return _isPlacing; }
+        set
+        {
+            if (_isPlacing == value)
+            {
+                return;
+            }
+
+            _isPlacing = value;
+            if (_isPlacing == false && PlacementFinished != null)
+            {
+                PlacementFinished();
+            }
+        }
+    }
 
     private GameObject Object
     {
@@ -37,7 +55,7 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
             Debug.LogError("This script expects that you have a WorldAnchorManager component in your scene.");
         }
 
-        if (SpatialMappingManager.Instance == null)
+        if (SpatialMappingControl.Instance == null)
         {
             Debug.LogError("This script expects that you have a SpatialMapping component in your scene.");
         }
@@ -53,7 +71,7 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
             var gazeDirection = Camera.main.transform.forward;
 
             RaycastHit hitInfo;
-            if (Physics.Raycast(headPosition, gazeDirection, out hitInfo, 100.0f, SpatialMappingManager.Instance.LayerMask))
+            if (Physics.Raycast(headPosition, gazeDirection, out hitInfo, 100.0f, SpatialMappingControl.PhysicsRaycastMask))
             {
                 // Move this object to where the raycast
                 // hit the Spatial Mapping mesh.
@@ -117,4 +135,6 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
 
         eventData.Use();
     }
+
+    public event Action PlacementFinished;
 }

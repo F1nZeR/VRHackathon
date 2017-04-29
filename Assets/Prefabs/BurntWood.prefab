@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4847779968804344}
   - component: {fileID: 198799202411256454}
   - component: {fileID: 199290238244657092}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114388849357484082}
   - component: {fileID: 199843693513301606}
   - component: {fileID: 198656376274074660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireMobile
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4422244799549736}
   - component: {fileID: 198619978459448136}
   - component: {fileID: 199027308486219846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1414329361605258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29014cd42b6d273408e0ceefd336c0b3, type: 3}
   m_Name: 

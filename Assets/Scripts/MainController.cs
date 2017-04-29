@@ -31,10 +31,10 @@ public class MainController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         InitHeight();
-        FireSound.SetActive(true);
-        Data.IsSmokeActivated = true;
+        //FireSound.SetActive(true);
+        //Data.IsSmokeActivated = true;
 
-        TimerTimeLeft = 30f;
+        //TimerTimeLeft = 30f;
     }
 
     void InitHeight()
