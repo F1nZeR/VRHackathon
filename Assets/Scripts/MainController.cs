@@ -12,6 +12,13 @@ public class MainController : MonoBehaviour {
 		StartCoroutine(InitHeight());
 	}
 
+	float GetCurrentPlayerHeight()
+	{
+		var floorHeight = Data.FloorHeight;
+		var curCameraHeight = Camera.main.transform.position.y;
+		return curCameraHeight - floorHeight;
+	}
+
 	IEnumerator InitHeight()
 	{
 		yield return new WaitForSeconds(5);
@@ -28,31 +35,22 @@ public class MainController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		
+		if (Data.IsSmokeActivated)
+		{
+			if (GetCurrentPlayerHeight() >= Data.GetSmokeHeight())
+			{
+				Data.DamagePlayer(DamageType.Smoke);
+			}
+			else
+			{
+				Data.HealPlayer(DamageType.Smoke);
+			}
+		}
 	}
 
 	public void KillPlayer()
 	{
 		// todo: kill user
-	}
-
-	public void NotifyAboutHealth(HealthLevel healthLevel)
-	{
-		// todo: implement GUI
-		switch (healthLevel)
-		{
-			case HealthLevel.SlightlyDamaged:
-				break;
-
-			case HealthLevel.MediumDamaged:
-				break;
-
-			case HealthLevel.HighlyDamaged:
-				break;
-
-			default:
-				break;
-		}
 	}
 
     public GameObject ExitObject;
