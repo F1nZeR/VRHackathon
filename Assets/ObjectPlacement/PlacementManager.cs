@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PlacementManager : MonoBehaviour, IInputClickHandler
 {
-    public string AnchorFriendlyName = "AnchorFriendlyNameItIsGlobal!!!";
+    public string AnchorFriendlyName = "CHANGE_ME_AnchorFriendlyNameItIsGlobal!!!";
     public GameObject ObjectToPlace = null;
     private bool _isPlacing = false;
 
@@ -30,7 +30,7 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
         }
     }
 
-    private GameObject Object
+    protected GameObject Object
     {
         get
         {
@@ -73,21 +73,26 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
             RaycastHit hitInfo;
             if (Physics.Raycast(headPosition, gazeDirection, out hitInfo, 100.0f, SpatialMappingControl.PhysicsRaycastMask))
             {
-                // Move this object to where the raycast
-                // hit the Spatial Mapping mesh.
-                // Here is where you might consider adding intelligence
-                // to how the object is placed.  For example, consider
-                // placing based on the bottom of the object's
-                // collider so it sits properly on surfaces.
-                Object.transform.position = hitInfo.point;
-
-                // Rotate this object to face the user.
-                Quaternion toQuat = Camera.main.transform.localRotation;
-                toQuat.x = 0;
-                toQuat.z = 0;
-                Object.transform.rotation = toQuat;
+                SetPosition(hitInfo);
             }
         }
+    }
+
+    protected virtual void SetPosition(RaycastHit hitInfo)
+    {
+        // Move this object to where the raycast
+        // hit the Spatial Mapping mesh.
+        // Here is where you might consider adding intelligence
+        // to how the object is placed.  For example, consider
+        // placing based on the bottom of the object's
+        // collider so it sits properly on surfaces.
+        Object.transform.position = hitInfo.point;
+
+        // Rotate this object to face the user.
+        Quaternion toQuat = Camera.main.transform.localRotation;
+        toQuat.x = 0;
+        toQuat.z = 0;
+        Object.transform.rotation = toQuat;
     }
 
     private void Go()
@@ -114,17 +119,13 @@ public class PlacementManager : MonoBehaviour, IInputClickHandler
 
     public void StartPlacement()
     {
-        Debug.Log("START PLACEMENT");
-
         IsPlacing = true;
         Go();
     }
 
     public virtual void OnInputClicked(InputClickedEventData eventData)
     {
-        Debug.Log("CLICK!");
-
-        if (IsPlacing == false)
+        if (IsPlacing == false && Data.IsEditorModeActive == false)
         {
             eventData.Reset();
             return;
