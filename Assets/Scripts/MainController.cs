@@ -10,6 +10,7 @@ public class MainController : MonoBehaviour
     public GameObject FireSound;
     public GameObject ExitObject;
     public GameObject Smoke;
+    public GameObject Baby;
 
     public Slider OxygenSlider;
     public Slider BurntSlider;
@@ -42,6 +43,8 @@ public class MainController : MonoBehaviour
             TimerTimeLeft = 90f;
 
             GetComponent<StickGenerator>().enabled = true;
+
+            Baby.GetComponent<Baby>().StartCry();
         }
     }
 

@@ -5,15 +5,15 @@ using HoloToolkit.Unity.InputModule;
 
 public class Baby : PlacementManager
 {
-    public GameObject BabySound;
-
     public override void OnInputClicked(InputClickedEventData eventData)
     {
         base.OnInputClicked(eventData);
 
-        if (!IsPlacing)
+        if (Data.IsEditorModeActive == false)
         {
-            AlarmAction();
+            gameObject.SetActive(false);
+            StopCry();
+            Data.IsBabyTaken = true;
         }
     }
 
@@ -36,13 +36,12 @@ public class Baby : PlacementManager
 
     public void StartCry()
     {
-        BabySound.SetActive(true);
+        GetComponent<AudioSource>().mute = false;
     }
 
-    private void AlarmAction()
+    public void StopCry()
     {
-        gameObject.SetActive(false);
-        BabySound.SetActive(false);
-        gameObject.AddComponent<Rigidbody>().mass = 2;
+        GetComponent<AudioSource>().mute = true;
+
     }
 }
