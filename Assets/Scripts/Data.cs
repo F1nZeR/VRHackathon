@@ -27,11 +27,13 @@ public static class Data
 
     public static bool IsEditorModeActive { get; set; }
 
+    public static bool IsSurvive { get; set; }
     public static bool IsBabyTaken { get; set; }
     public static bool IsAlarmPressed { get; set; }
 
     public static void ResetWinCondition()
     {
+        IsSurvive = false;
         IsBabyTaken = false;
         IsAlarmPressed = false;
     }
@@ -100,5 +102,10 @@ public static class Data
         {
             OxygenAmount = 1;
         }
+    }
+
+    public static void ShowResults()
+    {
+        GameObject.Find("HUDCanvas").GetComponent<ShowResult>().Show();
     }
 }
