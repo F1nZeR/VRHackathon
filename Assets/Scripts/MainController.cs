@@ -34,6 +34,8 @@ public class MainController : MonoBehaviour
     {
         if (IsReadyToStart)
         {
+            Data.ResetWinCondition();
+
             GetComponent<StickGenerator>().ClearObjects();
 
             IsReadyToStart = false;
@@ -43,13 +45,15 @@ public class MainController : MonoBehaviour
             FireSound.SetActive(true);
             Data.IsSmokeActivated = true;
 
-            TimerTimeLeft = 90f;
+            TimerTimeLeft = 60f;
 
             GetComponent<StickGenerator>().enabled = true;
 
             Baby.GetComponent<Baby>().StartCry();
 
             ExitObject.GetComponent<MeshRenderer>().enabled = false;
+
+            Data.IsEditorModeActive = false;
         }
     }
 
@@ -93,26 +97,35 @@ public class MainController : MonoBehaviour
             {
                 KillPlayer();
                 TimerTimeLeft = 0;
+                return;
             }
 
             var timeLeft = TimeSpan.FromSeconds(TimerTimeLeft);
             var secondsLeft = timeLeft.Seconds;
             var minutesLeft = timeLeft.Minutes;
-            TimerText.text = string.Format("{0}:{1}",
-                minutesLeft >= 10 ? minutesLeft.ToString() : "0" + minutesLeft,
-                secondsLeft >= 10 ? secondsLeft.ToString() : "0" + secondsLeft);
+            if (Data.IsSmokeActivated)
+            {
+                TimerText.text = string.Format("{0}:{1}",
+                    minutesLeft >= 10 ? minutesLeft.ToString() : "0" + minutesLeft,
+                    secondsLeft >= 10 ? secondsLeft.ToString() : "0" + secondsLeft);
+            }
+
+            if (Vector3.Distance(Camera.main.transform.position, ExitObject.transform.position) < 1.5f)
+            {
+                StartExitProcedure();
+            }
         }
     }
 
     public void KillPlayer()
     {
-        Data.IsSmokeActivated = false;
-        // todo: kill user
+        Data.IsSurvive = false;
+        Finish();
     }
 
     public void CollidedWith(GameObject collidedWith)
     {
-        if (collidedWith == ExitObject)
+        if (collidedWith.tag == "Exit")
         {
             StartExitProcedure();
         }
@@ -124,7 +137,16 @@ public class MainController : MonoBehaviour
 
     private void StartExitProcedure()
     {
+        Data.IsSurvive = true;
+        Finish();
+    }
+
+    private void Finish()
+    {
         Data.IsSmokeActivated = false;
+        Data.ShowResults();
+        Clicker.SetActive(true);
+        IsReadyToStart = true;
     }
 
     public bool IsReadyToStart = false;
@@ -134,7 +156,9 @@ public class MainController : MonoBehaviour
         InitHeight();
         IsReadyToStart = true;
         Hud.SetActive(true);
+        Clicker.SetActive(true);
     }
 
     public GameObject Hud;
+    public GameObject Clicker;
 }

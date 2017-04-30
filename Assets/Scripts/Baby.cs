@@ -7,14 +7,14 @@ public class Baby : PlacementManager
 {
     public override void OnInputClicked(InputClickedEventData eventData)
     {
-        base.OnInputClicked(eventData);
-
         if (Data.IsEditorModeActive == false)
         {
             gameObject.SetActive(false);
             StopCry();
             Data.IsBabyTaken = true;
         }
+
+        base.OnInputClicked(eventData);
     }
 
     protected override void SetPosition(RaycastHit hitInfo)

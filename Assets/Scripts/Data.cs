@@ -12,8 +12,6 @@ public static class Data
 {
     static Data()
     {
-        OxygenAmount = 1;
-        HealthAmount = 1;
         ResetWinCondition();
     }
 
@@ -33,6 +31,8 @@ public static class Data
 
     public static void ResetWinCondition()
     {
+        OxygenAmount = 1;
+        HealthAmount = 1;
         IsSurvive = false;
         IsBabyTaken = false;
         IsAlarmPressed = false;
@@ -62,6 +62,7 @@ public static class Data
         if (HealthAmount <= 0)
         {
             Controller.KillPlayer();
+            return;
         }
 
         if (OxygenAmount <= 0)
@@ -74,6 +75,7 @@ public static class Data
         {
             HealthAmount = 0;
             Controller.KillPlayer();
+            return;
         }
     }
 

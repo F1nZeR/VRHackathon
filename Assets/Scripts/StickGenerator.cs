@@ -10,12 +10,11 @@ public class StickGenerator : MonoBehaviour {
 
     public Transform Camera;
 
-    private List<Transform> _objects;
+    private List<Transform> _objects = new List<Transform>();
 
 	// Use this for initialization
 	void Start () {
-		_objects = new List<Transform> ();
-        InvokeRepeating("Generate", 10, 8);
+        InvokeRepeating("Generate", 6, 6);
     }
 	
 	// Update is called once per frame
