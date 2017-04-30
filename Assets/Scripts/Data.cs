@@ -14,6 +14,7 @@ public static class Data
     {
         OxygenAmount = 1;
         HealthAmount = 1;
+        ResetWinCondition();
     }
 
     public static MainController Controller { get; set; }
@@ -23,6 +24,17 @@ public static class Data
 
     public static float OxygenAmount { get; set; }
     public static float HealthAmount { get; set; }
+
+    public static bool IsEditorModeActive { get; set; }
+
+    public static bool IsBabyTaken { get; set; }
+    public static bool IsAlarmPressed { get; set; }
+
+    public static void ResetWinCondition()
+    {
+        IsBabyTaken = false;
+        IsAlarmPressed = false;
+    }
 
     public static float GetSmokeHeight()
     {

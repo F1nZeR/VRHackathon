@@ -10,15 +10,15 @@ public class Alarm : PlacementManager
     public override void OnInputClicked(InputClickedEventData eventData)
     {
         base.OnInputClicked(eventData);
-
-        if (!IsPlacing)
-        {
-            AlarmAction();
-        }
     }
 
-    private void AlarmAction()
+    public void StartAlarm()
     {
         AlarmSound.SetActive(true);
+    }
+
+    public void StopAlarm()
+    {
+        AlarmSound.SetActive(false);
     }
 }

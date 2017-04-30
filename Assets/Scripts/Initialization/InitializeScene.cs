@@ -12,6 +12,8 @@ public class InitializeScene : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Data.IsEditorModeActive = true;
+
         foreach (var item in ObjectsToInit)
         {
             item.SetActive(false);
@@ -64,6 +66,7 @@ public class InitializeScene : MonoBehaviour
             SpatialMappingControl.Instance.SetDefaultUpdateTime();
 
             GetComponent<MainController>().Ready();
+            Data.IsEditorModeActive = false;
 
             Destroy(this);
         }
