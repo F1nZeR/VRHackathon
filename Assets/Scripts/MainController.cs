@@ -47,6 +47,8 @@ public class MainController : MonoBehaviour
             GetComponent<StickGenerator>().enabled = true;
 
             Baby.GetComponent<Baby>().StartCry();
+
+            ExitObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 
