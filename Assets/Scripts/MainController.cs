@@ -15,6 +15,7 @@ public class MainController : MonoBehaviour
     public Slider OxygenSlider;
     public Slider BurntSlider;
     public Text TimerText;
+	public Image HealthOverlayStatus;
 
     float TimerTimeLeft;
 
@@ -79,6 +80,9 @@ public class MainController : MonoBehaviour
 
             OxygenSlider.value = Data.OxygenAmount;
             BurntSlider.value = Data.HealthAmount;
+
+			var healthOverlayColor = HealthOverlayStatus.color;
+			healthOverlayColor.a = Mathf.Clamp(1 - Data.HealthAmount, 0, 0.7f);
 
             TimerTimeLeft -= Time.deltaTime;
             if (TimerTimeLeft < 0)
