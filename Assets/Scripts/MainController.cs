@@ -73,6 +73,13 @@ public class MainController : MonoBehaviour
         Data.FloorHeight = -height;
     }
 
+    private float ConvertRange(float originalStart, float originalEnd,
+        float newStart, float newEnd, float value)
+    {
+        float scale = (newEnd - newStart) / (originalEnd - originalStart);
+        return newStart + (value - originalStart) * scale;
+    }
+
     void FixedUpdate()
     {
         if (Data.IsSmokeActivated)
@@ -89,8 +96,8 @@ public class MainController : MonoBehaviour
             OxygenSlider.value = Data.OxygenAmount;
             BurntSlider.value = Data.HealthAmount;
 
-			var healthOverlayColor = HealthOverlayStatus.color;
-			healthOverlayColor.a = Mathf.Clamp(1 - Data.HealthAmount, 0, 0.7f);
+            var healthOverlayAlpha = ConvertRange(0, 1, 0.75f, 1, Data.HealthAmount);
+			HealthOverlayStatus.color = new Color(0.75f, 0, 0, 1 - healthOverlayAlpha);
 
             TimerTimeLeft -= Time.deltaTime;
             if (TimerTimeLeft < 0)
