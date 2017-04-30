@@ -33,6 +33,8 @@ public class MainController : MonoBehaviour
     {
         if (IsReadyToStart)
         {
+            GetComponent<StickGenerator>().ClearObjects();
+
             IsReadyToStart = false;
 
             Smoke.SetActive(true);
@@ -83,7 +85,7 @@ public class MainController : MonoBehaviour
             TimerTimeLeft -= Time.deltaTime;
             if (TimerTimeLeft < 0)
             {
-                // todo: exit
+                KillPlayer();
                 TimerTimeLeft = 0;
             }
 
@@ -98,6 +100,7 @@ public class MainController : MonoBehaviour
 
     public void KillPlayer()
     {
+        Data.IsSmokeActivated = false;
         // todo: kill user
     }
 
@@ -115,7 +118,7 @@ public class MainController : MonoBehaviour
 
     private void StartExitProcedure()
     {
-        //TODO:EXIT!!
+        Data.IsSmokeActivated = false;
     }
 
     public bool IsReadyToStart = false;
