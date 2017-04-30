@@ -121,5 +121,8 @@ public class MainController : MonoBehaviour
     {
         InitHeight();
         IsReadyToStart = true;
+        Hud.SetActive(true);
     }
+
+    public GameObject Hud;
 }
