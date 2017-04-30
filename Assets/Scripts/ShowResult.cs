@@ -7,11 +7,6 @@ public class ShowResult : MonoBehaviour {
 
     public Text Result;
 
-    public void Start()
-    {
-        Show();
-    }
-
     public void Show()
     {
         var header = Data.IsSurvive ? "Вы выжили" : "Вы умерли";
